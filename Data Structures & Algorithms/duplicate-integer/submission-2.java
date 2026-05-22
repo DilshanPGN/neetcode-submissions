@@ -1,9 +1,13 @@
 class Solution {
     public boolean hasDuplicate(int[] nums) {
+        HashSet<Integer> set = new HashSet<>(nums.length);
 
-        HashSet set = new HashSet<> ();
-        Arrays.stream(nums).forEach(set::add);
-        return (set.size() != nums.length);
-        
+        for (int num : nums) {
+            if (!set.add(num)) {
+                return true;
+            }
+        }
+
+        return false;
     }
 }
